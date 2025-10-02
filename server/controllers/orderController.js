@@ -12,5 +12,13 @@ orderController.placeOrder = async (req, res) => {
         return res.status(400).json(createResult(null, null, error.message));
     }
 };
-
+orderController.getOrders = async (req, res) => {
+  try {
+    const orders = await OrderService.getOrders();
+    return res.status(200).json(createResult("Orders fetched successfully", orders));
+  } catch (error) {
+    console.error("Error fetching orders:", error.message);
+    return res.status(400).json(createResult(null, null, error.message));
+  }
+};
 module.exports = orderController;

@@ -1,18 +1,15 @@
 import axios from "axios";
 import constant from "./constant";
 
-const createAxiosInstance = axios.create({
+// Create axios instance
+const axiosInstance = axios.create({
   baseURL: `${constant.appBaseUrl}/api/`,
   headers: {
-    "Content-Type": "multipart/form-data",
-    Authorization: token ? `Bearer ${token}` : null,
+    "Content-Type": "application/json",
   },
 });
 
-const axiosInstance = axios.create({
-  baseURL: `${constant.appBaseUrl}/api/`,
-});
-
+// Request interceptor (optional auth token)
 axiosInstance.interceptors.request.use(
   (config) => {
     const token = JSON.parse(localStorage.getItem("authUser"))?.token;
@@ -24,12 +21,38 @@ axiosInstance.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
+// Response interceptor
 axiosInstance.interceptors.response.use(
   (response) => response,
-  (error) => Promise.reject(error.response?.data || "Something went wrong")
+  (error) =>
+    Promise.reject(error.response?.data || error.message || "Something went wrong")
 );
-// will define the structure for api's below
+
+
+export const getProducts = async () => {
+  try {
+    const response = await axiosInstance.get("product/products");
+    return response.data; 
+  } catch (error) {
+    return Promise.reject(error);
+  }
+};
+
+export const placeOrder = async (orderPayload) => {
+  try {
+    const response = await axiosInstance.post("orders/place-order", orderPayload);
+    return response.data; 
+  } catch (error) {
+    return Promise.reject(error);
+  }
+};
+export const getOrders = async () => {
+  try {
+    const response = await axiosInstance.get("orders/get-orders"); 
+    return response.data; 
+  } catch (error) {
+    return Promise.reject(error);
+  }
+};
 
 export default axiosInstance;
-
-
