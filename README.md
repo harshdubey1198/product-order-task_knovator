@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+# Test Task - Simple E-commerce Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to your Test Task!  
 
-## Available Scripts
+### Task Briefing
+Your task is to create a simple e-commerce website that allows users to:
+- View a list of products.
+- Add products to their cart.
+- Place orders.
 
-In the project directory, you can run:
+**Technologies:**
+- Frontend: ReactJS
+- Backend: NodeJS
+- Styling: Any library or approach you prefer.
 
-### `npm start`
+**Requirements:**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#### Frontend
+1. **Product Listing Page**
+   - Display a grid of products.
+   - Each product card should include:
+     - Product image
+     - Product name
+     - Product description
+     - Product price
+     - "Add to Cart" button (text or "+" icon)
+2. **Cart Page**
+   - Accessible via a "Cart" button in the header.
+   - Display added products with names, prices, and quantity.
+   - Show total price.
+   - Form to collect user details:
+     - First name (required)
+     - Last name (required)
+     - Address (required)
+3. **Order Placement**
+   - "Place Order" button sends a request to the backend.
+   - Backend validates required fields.
+   - Display a success message upon successful order placement.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#### Backend
+1. **Product Data API**
+   - Endpoint to fetch a list of products.
+   - Each product should have: name, image, description, and price.
+   - Products stored in-memory (no database required for products).
+2. **Place Order API**
+   - Endpoint to place an order.
+   - Validate first name, last name, and address.
+   - Simulate order placement (print order details to console).
+   - Respond with a success message.
 
-### `npm test`
+#### Additional Guidelines
+- Proper project structure for both frontend and backend.
+- Error handling on the frontend with user-friendly messages.
+- Clean and maintainable code.
+- Reusable components encouraged.
+- Node_modules **should not** be included in the zip.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Technical Stack
+- **Frontend:** ReactJS
+- **Backend:** NodeJS
+- **Database (optional for orders):** MongoDB
+- **Styling:** Any approach/library
 
-### `npm run build`
+### Marking Criteria
+1. Task functionality.
+2. Proper naming conventions.
+3. Readable code.
+4. Reusable components.
+5. Use of advanced React concepts.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Environment Variables
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Backend (`.env`)
+PORT=7200
+TOKEN_KEY=secret
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Testing Keys
+MONGO_URI=mongodb+srv://harshhd1198_db_user:harshhd1198_password@task01.mc2ydyg.mongodb.net/task-knovator?retryWrites=true&w=majority&appName=task-knovator
+FRONTEND_URL=http://localhost:3000
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
