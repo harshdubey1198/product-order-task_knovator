@@ -1,9 +1,9 @@
-const Order = require("../models/order.schema");
-const Product = require("../models/product.schema");
+import Order from "../models/order.schema.js";
+import Product from "../models/product.schema.js";
 
-const OrderService = {};
+export const OrderService = {};
 
-OrderService.placeOrder = async (orderData) => {
+OrderService.placeOrder = async orderData => {
   const { firstName, lastName, address, items } = orderData;
 
   if (!firstName || !lastName || !address || !items || items.length === 0) {
@@ -15,16 +15,14 @@ OrderService.placeOrder = async (orderData) => {
 
   for (const item of items) {
     const product = await Product.findById(item.product);
-    if (!product) {
-      throw new Error(`Product not found: ${item.product}`);
-    }
+    if (!product) throw new Error(`Product not found: ${item.product}`);
 
     const itemTotal = product.price * item.quantity;
     totalAmount += itemTotal;
 
     populatedItems.push({
       product: product._id,
-      quantity: item.quantity,
+      quantity: item.quantity
     });
   }
 
@@ -33,16 +31,12 @@ OrderService.placeOrder = async (orderData) => {
     lastName,
     address,
     items: populatedItems,
-    totalAmount,
+    totalAmount
   });
 
   await newOrder.save();
-
   return newOrder;
 };
 
-OrderService.getOrders = async () => {
-  return await Order.find().populate("items.product"); 
-};
-
-module.exports = OrderService;
+OrderService.getOrders = async () =>
+  Order.find().populate("items.product");

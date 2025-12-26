@@ -1,5 +1,11 @@
+// const constant = {
+//   appBaseUrl: "http://localhost:7200",
+//   updateBiodata: false,
+// };
+// export default constant;
+
 const constant = {
-  appBaseUrl: "http://localhost:7200",
-  updateBiodata: false,
+  appBaseUrl: ""
 };
+
 export default constant;
