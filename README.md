@@ -1,83 +1,98 @@
-# Test Task - Simple E-commerce Website
+# Product & Order Management
 
-Welcome to your Test Task!  
+## Overview
+This project demonstrates **CRUD operations for products** and **order management**.
+It is built with a **MERN stack** and supports **search, pagination, and soft deletion**.
 
-### Task Briefing
-Your task is to create a simple e-commerce website that allows users to:
-- View a list of products.
-- Add products to their cart.
-- Place orders.
+## Tech Stack
+- **Frontend:** React.js, Reactstrap, Axios  
+- **Backend:** Node.js, Express.js, MongoDB (Mongoose)  
+- **Authentication:** JWT (optional demo mode handling)  
+- **Environment Config:** dotenv
 
-**Technologies:**
-- Frontend: ReactJS
-- Backend: NodeJS
-- Styling: Any library or approach you prefer.
+## Features
 
-**Requirements:**
+### Products
+- Create, Read, Update, Soft Delete (`deletedAt` used)  
+- Search by product name  
+- Pagination for listing products  
+- Responsive UI with product cards
 
-#### Frontend
-1. **Product Listing Page**
-   - Display a grid of products.
-   - Each product card should include:
-     - Product image
-     - Product name
-     - Product description
-     - Product price
-     - "Add to Cart" button (text or "+" icon)
-2. **Cart Page**
-   - Accessible via a "Cart" button in the header.
-   - Display added products with names, prices, and quantity.
-   - Show total price.
-   - Form to collect user details:
-     - First name (required)
-     - Last name (required)
-     - Address (required)
-3. **Order Placement**
-   - "Place Order" button sends a request to the backend.
-   - Backend validates required fields.
-   - Display a success message upon successful order placement.
+### Orders
+- Place a new order  
+- Fetch all orders  
+- Integration with products (add products to order)
 
-#### Backend
-1. **Product Data API**
-   - Endpoint to fetch a list of products.
-   - Each product should have: name, image, description, and price.
-   - Products stored in-memory (no database required for products).
-2. **Place Order API**
-   - Endpoint to place an order.
-   - Validate first name, last name, and address.
-   - Simulate order placement (print order details to console).
-   - Respond with a success message.
+## Setup Instructions
 
-#### Additional Guidelines
-- Proper project structure for both frontend and backend.
-- Error handling on the frontend with user-friendly messages.
-- Clean and maintainable code.
-- Reusable components encouraged.
-- Node_modules **should not** be included in the zip.
+### 1. Clone repository
+```bash
+git clone <repo_url>
+cd <repo_folder>
+```
 
-### Technical Stack
-- **Frontend:** ReactJS
-- **Backend:** NodeJS
-- **Database (optional for orders):** MongoDB
-- **Styling:** Any approach/library
+### 2. Server Setup
+```bash
+# for frontend 
+npm i 
+npm start
+# for backend
+cd server
+npm install
+npm run dev
+# edit .env with MongoDB URI and PORT
+```
 
-### Marking Criteria
-1. Task functionality.
-2. Proper naming conventions.
-3. Readable code.
-4. Reusable components.
-5. Use of advanced React concepts.
+### 3. Client Setup
+```bash
+cd client
+npm install
+npm start
+```
 
----
+### 4. Access the App
+- **Frontend:** `http://localhost:3000`  
+- **Backend API:** `http://localhost:7200/api`
 
 ## Environment Variables
-
-### Backend (`.env`)
+Create `.env` in `server`:
+```env
 PORT=7200
-TOKEN_KEY=secret
+DEFAULT_PAGE=1
+DEFAULT_LIMIT=8
+```
 
+## API Endpoints
 
-# Testing Keys
-MONGO_URI=mongodb+srv://harshhd1198_db_user:harshhd1198_password@task01.mc2ydyg.mongodb.net/task-knovator?retryWrites=true&w=majority&appName=task-knovator
-FRONTEND_URL=http://localhost:3000
+### Products
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET    | `/api/product/products` | Get products (supports pagination & search) |
+| POST   | `/api/product/create`   | Create a new product |
+| PUT    | `/api/product/update/:id` | Update product |
+| DELETE | `/api/product/delete/:id` | Soft delete product |
+
+### Orders
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST   | `/api/orders/place-order` | Place a new order |
+| GET    | `/api/orders/get-orders`  | Get all orders |
+
+## Project Structure
+```
+/client
+  /components
+  /pages
+  /apiServices
+/server
+  /controllers
+  /models
+  /services
+  /routes
+```
+
+## Author
+**Harsh Dubey** – Fullstack Developer (MERN)  
+- Email: amanad08052@gmail.com  
+
 
