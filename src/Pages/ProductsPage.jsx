@@ -16,8 +16,10 @@ export default function ProductsPage() {
     try {
       const res = await getProducts();
       // server createResult returns { message, data, error }
-      const data = res?.data || [];
+      const data = res?.data?.data || [];
       setProducts(data);
+      console.log(data); 
+      
       if (data.length === 0) {
         setError("No products available.");
       }

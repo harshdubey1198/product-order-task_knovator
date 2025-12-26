@@ -11,7 +11,7 @@ export default function ProductCard({ product, onAdd }) {
       <div className="card-body d-flex flex-column">
         <h5 className="card-title">{product.name}</h5>
         <p className="card-text text-muted small">{product.description}</p>
-        <div className="mt-auto d-flex justify-content-between align-items-center">
+        <div className="mt-auto d-flex flex-wrap justify-content-between align-items-center">
           <div>
             <div className="h6 mb-0">₹{product.price?.toFixed(2)}</div>
           </div>

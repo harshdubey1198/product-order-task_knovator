@@ -37,6 +37,20 @@ export const getProducts = async () => {
     return Promise.reject(error);
   }
 };
+export const createProduct = async (payload) => {
+  const res = await axiosInstance.post("product/create", payload);
+  return res.data;
+};
+
+export const updateProduct = async (id, payload) => {
+  const res = await axiosInstance.put(`product/update/${id}`, payload);
+  return res.data;
+};
+
+export const deleteProduct = async (id) => {
+  const res = await axiosInstance.delete(`product/delete/${id}`);
+  return res.data;
+};
 
 export const placeOrder = async (orderPayload) => {
   try {
