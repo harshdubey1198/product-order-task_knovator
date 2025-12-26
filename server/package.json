@@ -4,8 +4,8 @@
   "description": "This is backend for the task.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "build" : "node build",
+    "start": "node server/server.js",
+    "build": "echo \"no build step\"",
     "dev": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
